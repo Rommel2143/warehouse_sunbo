@@ -251,9 +251,9 @@ Partial Class return_view
         Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label1.Location = New System.Drawing.Point(21, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(165, 25)
+        Me.Label1.Size = New System.Drawing.Size(162, 25)
         Me.Label1.TabIndex = 206
-        Me.Label1.Text = "Incoming Records"
+        Me.Label1.Text = "Returned Records"
         '
         'Label3
         '
@@ -304,7 +304,6 @@ Partial Class return_view
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.BorderRadius = 12
         Me.Guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.DimGray
-        Me.Guna2Panel1.ShadowDecoration.Enabled = True
         Me.Guna2Panel1.Size = New System.Drawing.Size(366, 336)
         Me.Guna2Panel1.TabIndex = 206
         '

@@ -35,6 +35,8 @@ Partial Class Login
         'Guna2Panel1
         '
         Me.Guna2Panel1.BackColor = System.Drawing.Color.White
+        Me.Guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Guna2Panel1.BorderThickness = 1
         Me.Guna2Panel1.Controls.Add(Me.Guna2Separator1)
         Me.Guna2Panel1.Controls.Add(Me.btn_login)
         Me.Guna2Panel1.Controls.Add(Me.txt_password)
@@ -43,6 +45,8 @@ Partial Class Login
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Guna2Panel1.Location = New System.Drawing.Point(586, 0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.DimGray
+        Me.Guna2Panel1.ShadowDecoration.Enabled = True
         Me.Guna2Panel1.Size = New System.Drawing.Size(443, 660)
         Me.Guna2Panel1.TabIndex = 0
         '
@@ -119,11 +123,11 @@ Partial Class Login
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.DimGray
-        Me.Label1.Location = New System.Drawing.Point(38, 96)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label1.Location = New System.Drawing.Point(36, 78)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(198, 60)
+        Me.Label1.Size = New System.Drawing.Size(248, 74)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Philippines TRC Inc." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Warehouse-Sunbo"
         '

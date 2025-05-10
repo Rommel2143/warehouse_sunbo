@@ -21,4 +21,8 @@ WHERE lu.status = 1 AND lu.partcode REGEXP '" & Guna2TextBox1.Text & "'
 GROUP BY lu.partcode DESC", datagrid1)
         End If
     End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        exporttoExcel(datagrid1)
+    End Sub
 End Class

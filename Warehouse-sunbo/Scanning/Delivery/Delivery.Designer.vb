@@ -66,9 +66,9 @@ Partial Class Delivery
         Me.flow1.AutoScroll = True
         Me.flow1.AutoScrollMargin = New System.Drawing.Size(0, 20)
         Me.flow1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.flow1.Location = New System.Drawing.Point(27, 324)
+        Me.flow1.Location = New System.Drawing.Point(27, 351)
         Me.flow1.Name = "flow1"
-        Me.flow1.Size = New System.Drawing.Size(444, 306)
+        Me.flow1.Size = New System.Drawing.Size(444, 279)
         Me.flow1.TabIndex = 207
         '
         'Panel5
@@ -78,13 +78,15 @@ Partial Class Delivery
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(27, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(444, 324)
+        Me.Panel5.Size = New System.Drawing.Size(444, 351)
         Me.Panel5.TabIndex = 209
         '
         'Guna2Panel1
         '
         Me.Guna2Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Guna2Panel1.BorderRadius = 10
+        Me.Guna2Panel1.BorderThickness = 1
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.txt_boxno)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
@@ -96,9 +98,8 @@ Partial Class Delivery
         Me.Guna2Panel1.Location = New System.Drawing.Point(6, 12)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.BorderRadius = 12
-        Me.Guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.DimGray
-        Me.Guna2Panel1.ShadowDecoration.Enabled = True
-        Me.Guna2Panel1.Size = New System.Drawing.Size(398, 294)
+        Me.Guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Silver
+        Me.Guna2Panel1.Size = New System.Drawing.Size(398, 314)
         Me.Guna2Panel1.TabIndex = 206
         '
         'Label2
@@ -106,7 +107,7 @@ Partial Class Delivery
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.DimGray
-        Me.Label2.Location = New System.Drawing.Point(54, 210)
+        Me.Label2.Location = New System.Drawing.Point(54, 224)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 208
@@ -114,6 +115,7 @@ Partial Class Delivery
         '
         'txt_boxno
         '
+        Me.txt_boxno.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt_boxno.BorderRadius = 3
         Me.txt_boxno.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txt_boxno.DefaultText = ""
@@ -127,7 +129,7 @@ Partial Class Delivery
         Me.txt_boxno.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txt_boxno.IconLeft = CType(resources.GetObject("txt_boxno.IconLeft"), System.Drawing.Image)
         Me.txt_boxno.IconLeftSize = New System.Drawing.Size(24, 24)
-        Me.txt_boxno.Location = New System.Drawing.Point(56, 226)
+        Me.txt_boxno.Location = New System.Drawing.Point(56, 240)
         Me.txt_boxno.Name = "txt_boxno"
         Me.txt_boxno.PlaceholderText = "Scan Box no..."
         Me.txt_boxno.SelectedText = ""
@@ -137,12 +139,12 @@ Partial Class Delivery
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.DimGray
         Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label1.Location = New System.Drawing.Point(35, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(164, 25)
+        Me.Label1.Size = New System.Drawing.Size(203, 32)
         Me.Label1.TabIndex = 206
         Me.Label1.Text = "SCAN OUTGOING"
         '
@@ -151,7 +153,7 @@ Partial Class Delivery
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.DimGray
-        Me.Label5.Location = New System.Drawing.Point(53, 135)
+        Me.Label5.Location = New System.Drawing.Point(53, 149)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(52, 13)
         Me.Label5.TabIndex = 205
@@ -162,7 +164,7 @@ Partial Class Delivery
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.DimGray
-        Me.Label3.Location = New System.Drawing.Point(53, 60)
+        Me.Label3.Location = New System.Drawing.Point(53, 74)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 204
@@ -170,6 +172,7 @@ Partial Class Delivery
         '
         'txt_batch
         '
+        Me.txt_batch.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt_batch.BorderRadius = 3
         Me.txt_batch.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txt_batch.DefaultText = ""
@@ -182,7 +185,7 @@ Partial Class Delivery
         Me.txt_batch.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txt_batch.IconLeft = CType(resources.GetObject("txt_batch.IconLeft"), System.Drawing.Image)
         Me.txt_batch.IconLeftSize = New System.Drawing.Size(24, 24)
-        Me.txt_batch.Location = New System.Drawing.Point(55, 76)
+        Me.txt_batch.Location = New System.Drawing.Point(55, 90)
         Me.txt_batch.Name = "txt_batch"
         Me.txt_batch.PlaceholderText = "Enter Batch..."
         Me.txt_batch.SelectedText = ""
@@ -191,6 +194,7 @@ Partial Class Delivery
         '
         'txtqr
         '
+        Me.txtqr.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtqr.BorderRadius = 3
         Me.txtqr.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtqr.DefaultText = ""
@@ -204,7 +208,7 @@ Partial Class Delivery
         Me.txtqr.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtqr.IconLeft = CType(resources.GetObject("txtqr.IconLeft"), System.Drawing.Image)
         Me.txtqr.IconLeftSize = New System.Drawing.Size(24, 24)
-        Me.txtqr.Location = New System.Drawing.Point(55, 151)
+        Me.txtqr.Location = New System.Drawing.Point(55, 165)
         Me.txtqr.Name = "txtqr"
         Me.txtqr.PlaceholderText = "Scan QR..."
         Me.txtqr.SelectedText = ""

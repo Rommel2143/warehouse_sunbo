@@ -31,11 +31,11 @@ Partial Class Recieving
         Me.flow1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.txtqr = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txt_batch = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.txtqr = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.datagrid1 = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -82,7 +82,9 @@ Partial Class Recieving
         'Guna2Panel1
         '
         Me.Guna2Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Guna2Panel1.BorderRadius = 10
+        Me.Guna2Panel1.BorderThickness = 1
         Me.Guna2Panel1.Controls.Add(Me.txtqr)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.Label5)
@@ -92,20 +94,42 @@ Partial Class Recieving
         Me.Guna2Panel1.Location = New System.Drawing.Point(6, 12)
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.ShadowDecoration.BorderRadius = 12
-        Me.Guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.DimGray
-        Me.Guna2Panel1.ShadowDecoration.Enabled = True
+        Me.Guna2Panel1.ShadowDecoration.Color = System.Drawing.Color.Silver
         Me.Guna2Panel1.Size = New System.Drawing.Size(398, 221)
         Me.Guna2Panel1.TabIndex = 206
+        '
+        'txtqr
+        '
+        Me.txtqr.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtqr.BorderRadius = 3
+        Me.txtqr.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtqr.DefaultText = ""
+        Me.txtqr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtqr.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtqr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtqr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtqr.Enabled = False
+        Me.txtqr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtqr.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtqr.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtqr.IconLeft = CType(resources.GetObject("txtqr.IconLeft"), System.Drawing.Image)
+        Me.txtqr.IconLeftSize = New System.Drawing.Size(24, 24)
+        Me.txtqr.Location = New System.Drawing.Point(55, 151)
+        Me.txtqr.Name = "txtqr"
+        Me.txtqr.PlaceholderText = "Scan QR..."
+        Me.txtqr.SelectedText = ""
+        Me.txtqr.Size = New System.Drawing.Size(248, 36)
+        Me.txtqr.TabIndex = 203
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.DimGray
         Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Label1.Location = New System.Drawing.Point(35, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(166, 25)
+        Me.Label1.Size = New System.Drawing.Size(201, 32)
         Me.Label1.TabIndex = 206
         Me.Label1.Text = "SCAN INCOMING"
         '
@@ -133,6 +157,7 @@ Partial Class Recieving
         '
         'txt_batch
         '
+        Me.txt_batch.BorderColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txt_batch.BorderRadius = 3
         Me.txt_batch.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txt_batch.DefaultText = ""
@@ -151,28 +176,6 @@ Partial Class Recieving
         Me.txt_batch.SelectedText = ""
         Me.txt_batch.Size = New System.Drawing.Size(248, 36)
         Me.txt_batch.TabIndex = 202
-        '
-        'txtqr
-        '
-        Me.txtqr.BorderRadius = 3
-        Me.txtqr.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtqr.DefaultText = ""
-        Me.txtqr.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtqr.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtqr.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtqr.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtqr.Enabled = False
-        Me.txtqr.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtqr.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtqr.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtqr.IconLeft = CType(resources.GetObject("txtqr.IconLeft"), System.Drawing.Image)
-        Me.txtqr.IconLeftSize = New System.Drawing.Size(24, 24)
-        Me.txtqr.Location = New System.Drawing.Point(55, 151)
-        Me.txtqr.Name = "txtqr"
-        Me.txtqr.PlaceholderText = "Scan QR..."
-        Me.txtqr.SelectedText = ""
-        Me.txtqr.Size = New System.Drawing.Size(248, 36)
-        Me.txtqr.TabIndex = 203
         '
         'Panel3
         '
