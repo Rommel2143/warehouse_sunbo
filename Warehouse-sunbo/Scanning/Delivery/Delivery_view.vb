@@ -13,7 +13,7 @@ Public Class Delivery_view
             Dim query As String = "SELECT lm.partname,lu.partcode,SUM(lu.qty) AS qty, COUNT(lu.id) AS count from logistics_sunbo lu
                                 JOIN logistics_masterlist lm ON lm.partcode=lu.partcode
                                 JOIN logistics_user_sunbo l ON l.IDno = lu.userout
-                               WHERE dateout='" & dtpicker1.Value.ToString("yyyy-MM-dd") & "' AND batchout='" & cmb_batch.Text & "' AND CONCAT(l.Firstname, ' ', l.Lastname)='" & cmb_user.Text & "' AND isreturn = 0
+                               WHERE dateout='" & dtpicker1.Value.ToString("yyyy-MM-dd") & "' AND batchout='" & cmb_batch.Text & "' AND CONCAT(l.Firstname, ' ', l.Lastname)='" & cmb_user.Text & "' 
                                 GROUP BY lu.partcode"
             Dim cmd As New MySqlCommand(query, con)
             con.Close()
@@ -34,7 +34,7 @@ Public Class Delivery_view
     Private Sub displayrecords()
         reload("SELECT logistics_sunbo.id,`qrcode`, `partcode`, `lotnumber`, `supplier`, `remarks`, `qty`,dateout,`timeOUT` FROM `logistics_sunbo` 
                  JOIN logistics_user_sunbo lu ON lu.IDno = logistics_sunbo.userout
-                 WHERE dateout='" & dtpicker1.Value.ToString("yyyy-MM-dd") & "' AND batchout='" & cmb_batch.Text & "' AND CONCAT(lu.Firstname, ' ', lu.Lastname)='" & cmb_user.Text & "' AND isreturn = 0", datagrid1)
+                 WHERE dateout='" & dtpicker1.Value.ToString("yyyy-MM-dd") & "' AND batchout='" & cmb_batch.Text & "' AND CONCAT(lu.Firstname, ' ', lu.Lastname)='" & cmb_user.Text & "' ", datagrid1)
     End Sub
 
 
@@ -43,7 +43,7 @@ Public Class Delivery_view
         Dim query As String = "SELECT CONCAT(lu.Firstname, ' ', lu.Lastname) AS Fullname 
                                  FROM logistics_sunbo l
                                  JOIN logistics_user_sunbo lu ON lu.IDno = l.userout
-                                 WHERE dateout = '" & dtpicker1.Value.ToString("yyyy-MM-dd") & "' AND isreturn = 0
+                                 WHERE dateout = '" & dtpicker1.Value.ToString("yyyy-MM-dd") & "'
                                   GROUP BY CONCAT(lu.Firstname, ' ', lu.Lastname)"
 
 
@@ -59,7 +59,7 @@ Public Class Delivery_view
         Dim query As String = "SELECT batchout 
                                  FROM logistics_sunbo l
                                  JOIN logistics_user_sunbo lu ON lu.IDno = l.userout
-                                 WHERE CONCAT(lu.Firstname, ' ', lu.Lastname)='" & cmb_user.Text & "' AND dateout = '" & dtpicker1.Value.ToString("yyyy-MM-dd") & "' AND isreturn = 0
+                                 WHERE CONCAT(lu.Firstname, ' ', lu.Lastname)='" & cmb_user.Text & "' AND dateout = '" & dtpicker1.Value.ToString("yyyy-MM-dd") & "' 
                                   GROUP BY batchout"
 
 
