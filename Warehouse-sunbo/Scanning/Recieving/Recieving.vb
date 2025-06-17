@@ -7,6 +7,7 @@ Public Class Recieving
     Private Sub txtqr_KeyDown(sender As Object, e As KeyEventArgs) Handles txtqr.KeyDown
         If e.KeyCode = Keys.Enter Then
             If inserttoDB(txtqr.Text.Trim, txt_batch.Text.Trim) = True Then
+                UpdateIntransit(txtqr.Text.Trim)
                 getGroup()
                 displayrecords()
             End If
@@ -25,8 +26,6 @@ Public Class Recieving
 
     Private Sub getGroup()
         Try
-
-
 
             Dim query As String = "SELECT lm.partname,lu.partcode,SUM(lu.qty) AS qty, COUNT(lu.id) AS count from logistics_sunbo lu
                                 JOIN logistics_masterlist lm ON lm.partcode=lu.partcode

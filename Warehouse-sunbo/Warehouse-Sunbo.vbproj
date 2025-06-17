@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ptif1-ds\SystemServer\Warehouse-Sunbo\</UpdateUrl>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -204,6 +204,7 @@
     <Compile Include="Main\add_user.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modules\CheckUpdateModule.vb" />
     <Compile Include="Modules\exportExcel.vb" />
     <Compile Include="Main\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
@@ -211,6 +212,7 @@
     <Compile Include="Main\Login.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modules\IntransitModule.vb" />
     <Compile Include="Modules\objects.vb" />
     <Compile Include="Modules\ProcessQR.vb" />
     <Compile Include="Modules\dbConnection.vb" />
@@ -299,6 +301,12 @@
     <Compile Include="Stock Monitoring\StockMonitoring.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="transit.designer.vb">
+      <DependentUpon>transit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="transit.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Main\add_user.resx">
@@ -346,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stock Monitoring\StockMonitoring.resx">
       <DependentUpon>StockMonitoring.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="transit.resx">
+      <DependentUpon>transit.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

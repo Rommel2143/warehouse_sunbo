@@ -7,9 +7,6 @@ Public Class print_report
     End Sub
 
 
-    'test
-
-
 
 
     Public Sub viewdata(dateout As String, user As String, batchout As String)

@@ -26,6 +26,7 @@ Partial Class subframe
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(subframe))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btn_transit = New Guna.UI2.WinForms.Guna2Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btn_menu = New Guna.UI2.WinForms.Guna2Button()
@@ -43,9 +44,12 @@ Partial Class subframe
         Me.btn_user = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.btn_administrator = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AddUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.AddUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.transit_timer = New System.Windows.Forms.Timer(Me.components)
+        Me.Update_timer = New System.Windows.Forms.Timer(Me.components)
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.btnmenu_strip.SuspendLayout()
@@ -63,6 +67,7 @@ Partial Class subframe
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.Panel2.Controls.Add(Me.btn_transit)
         Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Controls.Add(Me.btn_menu)
@@ -73,6 +78,29 @@ Partial Class subframe
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1168, 51)
         Me.Panel2.TabIndex = 6
+        '
+        'btn_transit
+        '
+        Me.btn_transit.BackColor = System.Drawing.Color.Transparent
+        Me.btn_transit.BorderColor = System.Drawing.Color.Silver
+        Me.btn_transit.BorderThickness = 1
+        Me.btn_transit.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.btn_transit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.btn_transit.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.btn_transit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.btn_transit.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btn_transit.FillColor = System.Drawing.SystemColors.ControlLight
+        Me.btn_transit.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_transit.ForeColor = System.Drawing.Color.DimGray
+        Me.btn_transit.Image = CType(resources.GetObject("btn_transit.Image"), System.Drawing.Image)
+        Me.btn_transit.ImageSize = New System.Drawing.Size(32, 32)
+        Me.btn_transit.Location = New System.Drawing.Point(920, 0)
+        Me.btn_transit.Name = "btn_transit"
+        Me.btn_transit.Size = New System.Drawing.Size(62, 51)
+        Me.btn_transit.TabIndex = 10
+        Me.btn_transit.Text = "0"
+        Me.ToolTip1.SetToolTip(Me.btn_transit, "Ongoing Transit")
+        Me.btn_transit.UseTransparentBackground = True
         '
         'Label1
         '
@@ -209,9 +237,9 @@ Partial Class subframe
         '
         'profile_menu
         '
-        Me.profile_menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btn_user, Me.ToolStripSeparator1, Me.btn_administrator, Me.LogoutToolStripMenuItem})
+        Me.profile_menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btn_user, Me.ToolStripSeparator1, Me.btn_administrator, Me.CheckUpdatesToolStripMenuItem, Me.LogoutToolStripMenuItem})
         Me.profile_menu.Name = "ContextMenuStrip1"
-        Me.profile_menu.Size = New System.Drawing.Size(189, 122)
+        Me.profile_menu.Size = New System.Drawing.Size(189, 130)
         '
         'btn_user
         '
@@ -220,13 +248,13 @@ Partial Class subframe
         Me.btn_user.Image = CType(resources.GetObject("btn_user.Image"), System.Drawing.Image)
         Me.btn_user.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.btn_user.Name = "btn_user"
-        Me.btn_user.Size = New System.Drawing.Size(162, 30)
+        Me.btn_user.Size = New System.Drawing.Size(188, 30)
         Me.btn_user.Text = "User"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(159, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(185, 6)
         '
         'btn_administrator
         '
@@ -241,6 +269,22 @@ Partial Class subframe
         Me.btn_administrator.Text = "Administrator"
         Me.btn_administrator.Visible = False
         '
+        'AddUserToolStripMenuItem
+        '
+        Me.AddUserToolStripMenuItem.Name = "AddUserToolStripMenuItem"
+        Me.AddUserToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.AddUserToolStripMenuItem.Text = "Add User"
+        '
+        'CheckUpdatesToolStripMenuItem
+        '
+        Me.CheckUpdatesToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckUpdatesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.CheckUpdatesToolStripMenuItem.Image = CType(resources.GetObject("CheckUpdatesToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.CheckUpdatesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.CheckUpdatesToolStripMenuItem.Name = "CheckUpdatesToolStripMenuItem"
+        Me.CheckUpdatesToolStripMenuItem.Size = New System.Drawing.Size(188, 30)
+        Me.CheckUpdatesToolStripMenuItem.Text = "Check Updates"
+        '
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -248,14 +292,15 @@ Partial Class subframe
         Me.LogoutToolStripMenuItem.Image = CType(resources.GetObject("LogoutToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LogoutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(162, 30)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(188, 30)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'AddUserToolStripMenuItem
+        'transit_timer
         '
-        Me.AddUserToolStripMenuItem.Name = "AddUserToolStripMenuItem"
-        Me.AddUserToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.AddUserToolStripMenuItem.Text = "Add User"
+        Me.transit_timer.Interval = 60000
+        '
+        'Update_timer
+        '
         '
         'subframe
         '
@@ -299,4 +344,8 @@ Partial Class subframe
     Friend WithEvents ReturnBoxToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents btn_stock As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents AddUserToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btn_transit As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents CheckUpdatesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents transit_timer As Timer
+    Friend WithEvents Update_timer As Timer
 End Class

@@ -1,4 +1,5 @@
-﻿Public Class subframe
+﻿Imports MySql.Data.MySqlClient
+Public Class subframe
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles btn_menu.Click
         If btn_menu.ContextMenuStrip IsNot Nothing Then
             btn_menu.ContextMenuStrip.Show(btn_menu, 0, btn_menu.Height)
@@ -55,5 +56,33 @@
 
     Private Sub AddUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddUserToolStripMenuItem.Click
         display_inSub(add_user)
+    End Sub
+
+    Private Sub btn_transit_Click(sender As Object, e As EventArgs) Handles btn_transit.Click
+        btn_transit.Text = Checktransit().ToString()
+        transit.ShowDialog()
+        transit.BringToFront()
+    End Sub
+
+    Private Sub CheckUpdatesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckUpdatesToolStripMenuItem.Click
+        CheckUpdate()
+    End Sub
+
+    Private Sub transit_timer_Tick(sender As Object, e As EventArgs) Handles transit_timer.Tick
+        btn_transit.Text = Checktransit().ToString()
+
+    End Sub
+
+
+    Private Sub subframe_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        btn_transit.Text = Checktransit().ToString()
+        transit_timer.Interval = 60000 ' 1 minute in milliseconds
+        transit_timer.Start()
+        Update_timer.Interval = 1800000 ' 30 minutes in milliseconds (30 * 60 * 1000)
+        Update_timer.Start()
+    End Sub
+
+    Private Sub Update_timer_Tick(sender As Object, e As EventArgs) Handles Update_timer.Tick
+        CheckUpdate(0)
     End Sub
 End Class
