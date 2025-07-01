@@ -75,6 +75,68 @@ Module ProcessQR
     End Function
 
 
+    Public Function getProddate(input As String) As String
+        Dim candidates As New List(Of DateTime)
+        Dim today As DateTime = Date.Today
+
+        ' First: scan for 6-digit YYMMDD
+        For i As Integer = 0 To input.Length - 6
+            Dim seg6 As String = input.Substring(i, 6)
+            If seg6.All(AddressOf Char.IsDigit) Then
+                Try
+                    Dim yy As Integer = CInt(seg6.Substring(0, 2))
+                    Dim mm As Integer = CInt(seg6.Substring(2, 2))
+                    Dim dd As Integer = CInt(seg6.Substring(4, 2))
+
+                    If IsValidDate(yy, mm, dd) Then
+                        Dim fullYear As Integer = 2000 + yy
+                        Dim dt As New DateTime(fullYear, mm, dd)
+                        If dt <= today Then candidates.Add(dt)
+                    End If
+                Catch
+                End Try
+            End If
+        Next
+
+        ' Fallback: scan for 5-digit YYMDD
+        For i As Integer = 0 To input.Length - 5
+            Dim seg5 As String = input.Substring(i, 5)
+            If seg5.All(AddressOf Char.IsDigit) Then
+                Try
+                    Dim yy As Integer = CInt(seg5.Substring(0, 2))
+                    Dim m As Integer = CInt(seg5.Substring(2, 1))
+                    Dim dd As Integer = CInt(seg5.Substring(3, 2))
+
+                    If IsValidDate(yy, m, dd) Then
+                        Dim fullYear As Integer = 2000 + yy
+                        Dim dt As New DateTime(fullYear, m, dd)
+                        If dt <= today Then candidates.Add(dt)
+                    End If
+                Catch
+                End Try
+            End If
+        Next
+
+        ' Return latest valid date ≤ today
+        If candidates.Count > 0 Then
+            Dim latest = candidates.OrderByDescending(Function(d) d).First()
+            Return latest.ToString("yyyy-MM-dd")
+        End If
+
+        Return Nothing
+    End Function
+
+    Private Function IsValidDate(yy As Integer, mm As Integer, dd As Integer) As Boolean
+        Try
+            Dim fullYear As Integer = 2000 + yy
+            Dim dt As New DateTime(fullYear, mm, dd)
+            Return True
+        Catch
+            Return False
+        End Try
+    End Function
+
+
     Public Function inserttoDB(qrcode As String, batch As String) As Boolean
         cleardata()
         Try
@@ -82,11 +144,11 @@ Module ProcessQR
                 If CheckPartName(QRpartcode) Then
                     con.Close()
                     con.Open()
-                    Dim query As String = "INSERT INTO `logistics_sunbo`(`id`, `status`, `qrcode`, `partcode`, `lotnumber`, 
+                    Dim query As String = "INSERT INTO `logistics_sunbo`(`id`, `status`, `qrcode`, `partcode`, `lotnumber`, prod_date,
                                                                 `supplier`, `remarks`, `qty`, `boxno`, `datein`,
                                                                 `userin`, `pcIN`, `batchin`, `timeIN`, `batchout`, 
                                                                 `dateout`, `timeOUT`, `userout`, `pcOUT`,isreturn)
-                                      VALUES (NULL, 1, @qrcode, @partcode, @lotnumber, 
+                                      VALUES (NULL, 1, @qrcode, @partcode, @lotnumber, @prod_date,
                                               @supplier, @remarks, @qty, '', CURDATE(), 
                                               @userin, @pcIN, @batchin, CURTIME(), '', NULL, NULL, '', '',0)"
 
@@ -94,6 +156,7 @@ Module ProcessQR
                     insert.Parameters.AddWithValue("@qrcode", qrcode)
                     insert.Parameters.AddWithValue("@partcode", QRpartcode)
                     insert.Parameters.AddWithValue("@lotnumber", QRlotnumber)
+                    insert.Parameters.AddWithValue("@prod_date", getProddate(QRlotnumber))
                     insert.Parameters.AddWithValue("@supplier", QRsupplier)
                     insert.Parameters.AddWithValue("@remarks", QRremarks)
                     insert.Parameters.AddWithValue("@qty", QRqty)

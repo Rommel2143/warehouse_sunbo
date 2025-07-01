@@ -51,7 +51,10 @@ Public Class subframe
     End Sub
 
     Private Sub btn_stock_Click(sender As Object, e As EventArgs) Handles btn_stock.Click
-        display_inSub(New StockMonitoring)
+        If btn_stock.ContextMenuStrip IsNot Nothing Then
+            btn_stock.ContextMenuStrip.Show(btn_stock, 0, btn_stock.Height)
+
+        End If
     End Sub
 
     Private Sub AddUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddUserToolStripMenuItem.Click
@@ -84,5 +87,17 @@ Public Class subframe
 
     Private Sub Update_timer_Tick(sender As Object, e As EventArgs) Handles Update_timer.Tick
         CheckUpdate(0)
+    End Sub
+
+    Private Sub StockMonitoringToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles StockMonitoringToolStripMenuItem.Click
+        display_inSub(New StockMonitoring)
+    End Sub
+
+    Private Sub ExpiringStocksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExpiringStocksToolStripMenuItem.Click
+        display_inSub(New expiring_stock)
+    End Sub
+
+    Private Sub UpdateproddateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateproddateToolStripMenuItem.Click
+        display_inSub(New update_proddate)
     End Sub
 End Class

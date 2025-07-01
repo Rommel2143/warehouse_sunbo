@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <UpdateUrl>\\ptif1-ds\SystemServer\Warehouse-Sunbo\</UpdateUrl>
-    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationRevision>9</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -204,6 +204,12 @@
     <Compile Include="Main\add_user.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Main\update_proddate.designer.vb">
+      <DependentUpon>update_proddate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\update_proddate.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modules\CheckUpdateModule.vb" />
     <Compile Include="Modules\exportExcel.vb" />
     <Compile Include="Main\Login.Designer.vb">
@@ -295,6 +301,12 @@
     <Compile Include="Scanning\Return\return_view.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Stock Monitoring\expiring_stock.designer.vb">
+      <DependentUpon>expiring_stock.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stock Monitoring\expiring_stock.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Stock Monitoring\StockMonitoring.Designer.vb">
       <DependentUpon>StockMonitoring.vb</DependentUpon>
     </Compile>
@@ -320,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\subframe.resx">
       <DependentUpon>subframe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\update_proddate.resx">
+      <DependentUpon>update_proddate.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -351,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Scanning\Return\return_view.resx">
       <DependentUpon>return_view.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Monitoring\expiring_stock.resx">
+      <DependentUpon>expiring_stock.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock Monitoring\StockMonitoring.resx">
       <DependentUpon>StockMonitoring.vb</DependentUpon>

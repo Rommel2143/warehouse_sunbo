@@ -45,15 +45,20 @@ Partial Class subframe
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.btn_administrator = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateproddateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckUpdatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.transit_timer = New System.Windows.Forms.Timer(Me.components)
         Me.Update_timer = New System.Windows.Forms.Timer(Me.components)
+        Me.menu_stock = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.StockMonitoringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExpiringStocksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.btnmenu_strip.SuspendLayout()
         Me.profile_menu.SuspendLayout()
+        Me.menu_stock.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -197,7 +202,7 @@ Partial Class subframe
         'btn_stock
         '
         Me.btn_stock.BackColor = System.Drawing.Color.Transparent
-        Me.btn_stock.ContextMenuStrip = Me.btnmenu_strip
+        Me.btn_stock.ContextMenuStrip = Me.menu_stock
         Me.btn_stock.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.btn_stock.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.btn_stock.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
@@ -259,7 +264,7 @@ Partial Class subframe
         'btn_administrator
         '
         Me.btn_administrator.BackColor = System.Drawing.Color.MistyRose
-        Me.btn_administrator.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddUserToolStripMenuItem})
+        Me.btn_administrator.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddUserToolStripMenuItem, Me.UpdateproddateToolStripMenuItem})
         Me.btn_administrator.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btn_administrator.ForeColor = System.Drawing.Color.DimGray
         Me.btn_administrator.Image = CType(resources.GetObject("btn_administrator.Image"), System.Drawing.Image)
@@ -272,8 +277,14 @@ Partial Class subframe
         'AddUserToolStripMenuItem
         '
         Me.AddUserToolStripMenuItem.Name = "AddUserToolStripMenuItem"
-        Me.AddUserToolStripMenuItem.Size = New System.Drawing.Size(131, 22)
+        Me.AddUserToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.AddUserToolStripMenuItem.Text = "Add User"
+        '
+        'UpdateproddateToolStripMenuItem
+        '
+        Me.UpdateproddateToolStripMenuItem.Name = "UpdateproddateToolStripMenuItem"
+        Me.UpdateproddateToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.UpdateproddateToolStripMenuItem.Text = "update_proddate"
         '
         'CheckUpdatesToolStripMenuItem
         '
@@ -302,6 +313,26 @@ Partial Class subframe
         'Update_timer
         '
         '
+        'menu_stock
+        '
+        Me.menu_stock.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockMonitoringToolStripMenuItem, Me.ExpiringStocksToolStripMenuItem})
+        Me.menu_stock.Name = "ContextMenuStrip1"
+        Me.menu_stock.Size = New System.Drawing.Size(197, 56)
+        '
+        'StockMonitoringToolStripMenuItem
+        '
+        Me.StockMonitoringToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.StockMonitoringToolStripMenuItem.Name = "StockMonitoringToolStripMenuItem"
+        Me.StockMonitoringToolStripMenuItem.Size = New System.Drawing.Size(196, 26)
+        Me.StockMonitoringToolStripMenuItem.Text = "Stock Monitoring"
+        '
+        'ExpiringStocksToolStripMenuItem
+        '
+        Me.ExpiringStocksToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExpiringStocksToolStripMenuItem.Name = "ExpiringStocksToolStripMenuItem"
+        Me.ExpiringStocksToolStripMenuItem.Size = New System.Drawing.Size(196, 26)
+        Me.ExpiringStocksToolStripMenuItem.Text = "Expiring Stocks"
+        '
         'subframe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -318,6 +349,7 @@ Partial Class subframe
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.btnmenu_strip.ResumeLayout(False)
         Me.profile_menu.ResumeLayout(False)
+        Me.menu_stock.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -348,4 +380,8 @@ Partial Class subframe
     Friend WithEvents CheckUpdatesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents transit_timer As Timer
     Friend WithEvents Update_timer As Timer
+    Friend WithEvents UpdateproddateToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents menu_stock As ContextMenuStrip
+    Friend WithEvents StockMonitoringToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExpiringStocksToolStripMenuItem As ToolStripMenuItem
 End Class
