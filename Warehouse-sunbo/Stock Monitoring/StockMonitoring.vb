@@ -6,11 +6,16 @@ Public Class StockMonitoring
     End Sub
 
     Private Sub loadall()
-        reload("SELECT lu.partcode AS Partcode, lm.partname, COUNT(lu.id) as 'Boxes', SUM(lu.qty) AS 'TOTAL' FROM logistics_sunbo lu " &
-           "JOIN logistics_masterlist lm ON lu.partcode = lm.partcode " &
-           "WHERE lu.status = 1 GROUP BY lu.partcode DESC", datagrid1)
+        reload("SELECT lm.partcode AS Partcode, lm.partname, " &
+           "COUNT(lu.id) AS 'Boxes', " &
+           "IFNULL(SUM(lu.qty), 0) AS `TOTAL` " &
+           "FROM logistics_masterlist lm " &
+           "LEFT JOIN logistics_sunbo lu ON lm.partcode = lu.partcode AND lu.status = 1 " &
+           "GROUP BY lm.partcode, lm.partname " &
+           "ORDER BY `TOTAL` DESC", datagrid1)
 
-        ' Set the Total column to be highlighted
+        ' Avoid adding handler multiple times
+        RemoveHandler datagrid1.CellFormatting, AddressOf datagrid1_CellFormatting
         AddHandler datagrid1.CellFormatting, AddressOf datagrid1_CellFormatting
     End Sub
 
@@ -25,11 +30,18 @@ Public Class StockMonitoring
         If Guna2TextBox1.Text = "" Then
             loadall()
         Else
-            reload("SELECT lu.partcode AS Partcode,lm.partname,COUNT(lu.id) as 'Boxes', SUM(lu.qty) AS 'TOTAL' FROM logistics_sunbo lu
-JOIN logistics_masterlist lm ON lu.partcode=lm.partcode
+            reload("SELECT lm.partcode AS Partcode, lm.partname, " &
+           "COUNT(lu.id) AS 'Boxes', " &
+           "IFNULL(SUM(lu.qty), 0) AS `TOTAL` " &
+           "FROM logistics_masterlist lm " &
+           "LEFT JOIN logistics_sunbo lu ON lm.partcode = lu.partcode AND lu.status = 1 " &
+            "WHERE lm.partcode REGEXP '" & Guna2TextBox1.Text & "' OR lm.partname REGEXP '" & Guna2TextBox1.Text & "' " &
+           "GROUP BY lm.partcode, lm.partname " &
+           "ORDER BY `TOTAL` DESC", datagrid1)
 
-WHERE lu.status = 1 AND lu.partcode REGEXP '" & Guna2TextBox1.Text & "' 
-GROUP BY lu.partcode DESC", datagrid1)
+
+
+
         End If
     End Sub
 
